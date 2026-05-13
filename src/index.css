@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C96A;
+  --color-cream: #F5F0E8;
+  --color-charcoal: #1a1a1a;
+  --color-near-black: #0a0a0a;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-poppins: 'Poppins', system-ui, sans-serif;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #C9A84C #0a0a0a;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background-color: #F5F0E8;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* ── Dark mode Leaflet tiles ── */
+.dark .leaflet-tile {
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* ── Leaflet popup ── */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.leaflet-popup-content { margin: 0 !important; }
+.leaflet-popup-tip { background: white !important; }
+
+/* ── Swiper ── */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #C9A84C !important;
+  background: rgba(0,0,0,0.4) !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  backdrop-filter: blur(8px);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px !important;
+  font-weight: 700;
+}
+.swiper-pagination-bullet { background: #C9A84C !important; opacity: 0.4; }
+.swiper-pagination-bullet-active { opacity: 1 !important; }
+
+/* ── Utility classes ── */
+.gold-gradient { background: linear-gradient(135deg, #C9A84C, #E8C96A); }
+
+.badge-villa     { background: rgba(201,168,76,0.15);  color: #C9A84C; border: 1px solid rgba(201,168,76,0.3);  padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.badge-penthouse { background: rgba(139,92,246,0.15);  color: #a78bfa; border: 1px solid rgba(139,92,246,0.3);  padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.badge-estate    { background: rgba(16,185,129,0.15);  color: #34d399; border: 1px solid rgba(16,185,129,0.3);  padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.badge-apartment { background: rgba(59,130,246,0.15);  color: #60a5fa; border: 1px solid rgba(59,130,246,0.3);  padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.badge-sale      { background: rgba(16,185,129,0.15);  color: #34d399; border: 1px solid rgba(16,185,129,0.3);  padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.badge-rent      { background: rgba(59,130,246,0.15);  color: #60a5fa; border: 1px solid rgba(59,130,246,0.3);  padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #C9A84C, transparent);
+  margin: 16px auto 0;
+}
+
+/* ── Global Responsive ── */
+@media (max-width: 768px) {
+  /* Sections padding */
+  section, [data-section] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Featured spotlight stacks on mobile */
+  .featured-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats strip wraps */
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Hero search bar stacks */
+  .hero-search-form {
+    flex-direction: column !important;
+  }
+
+  /* Enquiry form stacks */
+  .enquiry-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Property detail hero text */
+  .detail-hero-text {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 20px !important;
+  }
+
+  /* Swiper slides */
+  .swiper-slide img {
+    height: 220px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller font sizes on very small screens */
+  h1 { font-size: clamp(28px, 8vw, 40px) !important; }
+  h2 { font-size: clamp(24px, 6vw, 32px) !important; }
+}
